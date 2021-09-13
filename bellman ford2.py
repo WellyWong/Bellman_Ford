@@ -25,8 +25,7 @@ def initialize(graph, source):
     d = {}   # shortest-path estimate
     p = {}   # parent/predecessor
     for node in graph:
-        d[node] = float('Inf')  #float('inf') is used for setting a variable with an infinitely large value
-                                # alternatively, we can use sys.maxsize
+        d[node] = float('Inf')
         p[node] = None
     d[source] = 0
     return d, p
@@ -41,7 +40,7 @@ def bellman_ford(graph, source):
     for i in range(len(graph)-1):   #Run this until is converges
         for u in graph:
             for v in graph[u]:      #For each neighbour of u
-                relax(u, v, graph, d, p)    #Lets relax it
+                relax(u, v, graph, d, p)
 
     # Step 3: check for negative-weight cycles
     for u in graph:
@@ -109,8 +108,7 @@ def dfs(graph):
             dfs_visit(graph, u, color, parent, topo_stack)
     return topo_stack[::-1]
 
-#edge (u, v) is a forward edge if discover[u] < discover[v]
-# and a cross edge if discover[u] > discover[v]
+
 def dfs_visit(graph, u, color, parent, topo_stack):
     color[u] = 'gray'
 
